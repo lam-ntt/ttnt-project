@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Hello</title>
+  <title>{{ page }}</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
 
   <div class="header">
-      {% if tmp %}
-        <p>{{ tmp }}</p>
-      {% endif %}
-
       <h1>Handwritten Digits Reconigtion</h1>
       <p>This is a Demo of our Handwritten Digits Reconigtion project using Convolutional Neural Network. This model was trained on MNIST dataset and having approximately 98% accuracy on the test set.</p>
   </div>
@@ -19,11 +15,11 @@
   <div class="main">
     <div class="main-left">
       <canvas id="canvas" width="425px" height="425px"></canvas>
-      <button type="submit">Clear</button>
+      <button id="clear">Clear</button>
     </div>
     
     <div class="main-right">
-      <h2>Number predicted: {{ tmp }}</h2>
+      <h2 id="result">Number predicted: </h2>
       <h2>Image looks like this </h2>
       <img src="../static/img/th.jpg">
     </div>

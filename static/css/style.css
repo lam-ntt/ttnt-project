@@ -1,5 +1,5 @@
 body {
-  background-color: #202020; 
+  background-color: #202020;   
   color: white
 }
 
@@ -22,18 +22,21 @@ body {
   margin-right: 75x;
 }
 
-.main-left, 
+.main-left {
+  flex: 1.3;
+}
 .main-right {
   flex: 1;
 }
 
-.main-left canvas{
+.main-left canvas {
+  background-color: black;
   border: 5px solid white;
 }
 
 .main-left button{
   display: flex; 
-  margin-left: 450px; 
+  margin-left: 525px; 
   margin-top: 20px; 
   padding: 10px 30px; 
   font-size: 20px; 
@@ -44,4 +47,14 @@ body {
 .main-right {
   text-align: left; 
   margin-left: 75px;
+}
+
+img {
+  border: 5px solid white;
+  width: 200px;
+  height: 200px;
+}
+
+a {
+  color: burlywood;
 }

@@ -1,12 +1,10 @@
-var canvas = document.getElementById('canvas');
-
-var ctx = canvas.getContext('2d');
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
 ctx.strokeStyle = 'white'
 ctx.lineWidth = 30
 
-var isDrawing = false;
-
-var curImage = '';
+let isDrawing = false;
+let curImage = '';
 
 canvas.addEventListener('mousedown', function(e) {
   isDrawing = true;
@@ -21,10 +19,12 @@ canvas.addEventListener('mousemove', function(e) {
   }
 });
 
+let result = document.getElementById('result')
+let img = document.querySelector('img')
+
 canvas.addEventListener('mouseup', function() {
   isDrawing = false;
 
-  ctx.fillStyle = 'black';
   curImage = canvas.toDataURL( 'image/png')  
 
   fetch('/', {
@@ -34,15 +34,19 @@ canvas.addEventListener('mouseup', function() {
     },
     body: JSON.stringify({ image: curImage }),
   })
-  .then(response => {
-    if (response.ok) {
-      console.log('Ảnh đã được lưu trữ trên máy chủ');
-    } else {
-      console.error('Có lỗi xảy ra khi lưu ảnh');
-    }
-  })
-  .catch(error => {
-    console.error('Có lỗi xảy ra khi gửi yêu cầu lưu ảnh:', error);
-  });
+  .then(response => response.json())
+  .then(data => {
+    result.innerText = `${result.innerText} ${data.result}`
+    img.src = '../static/img/input-converted.png' + '/?foo=' + new Date().getTime() // add datetime to prevent cache issue
+})
 
+});
+
+let clearBtn = document.getElementById('clear');
+
+clearBtn.addEventListener('click', () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  result.innerText = 'Number predicted:'
+  img.src = '../static/img/th.jpg'
 });
