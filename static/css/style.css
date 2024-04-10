@@ -1,0 +1,47 @@
+body {
+  background-color: #202020; 
+  color: white
+}
+
+.header,
+.footer {
+  text-align: center;
+}
+
+.header p {
+  margin-left: auto; 
+  margin-right: auto; 
+  line-height: 30px; 
+  max-width: 700px; 
+  word-wrap: break-word;
+}
+
+.main {
+  display: flex; 
+  text-align: right; 
+  margin-right: 75x;
+}
+
+.main-left, 
+.main-right {
+  flex: 1;
+}
+
+.main-left canvas{
+  border: 5px solid white;
+}
+
+.main-left button{
+  display: flex; 
+  margin-left: 450px; 
+  margin-top: 20px; 
+  padding: 10px 30px; 
+  font-size: 20px; 
+  font-weight: 700; 
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.main-right {
+  text-align: left; 
+  margin-left: 75px;
+}

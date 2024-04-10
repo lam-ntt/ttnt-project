@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <div class="header">
+      {% if tmp %}
+        <p>{{ tmp }}</p>
+      {% endif %}
+
+      <h1>Handwritten Digits Reconigtion</h1>
+      <p>This is a Demo of our Handwritten Digits Reconigtion project using Convolutional Neural Network. This model was trained on MNIST dataset and having approximately 98% accuracy on the test set.</p>
+  </div>
+
+  <div class="main">
+    <div class="main-left">
+      <canvas id="canvas" width="425px" height="425px"></canvas>
+      <button type="submit">Clear</button>
+    </div>
+    
+    <div class="main-right">
+      <h2>Number predicted: {{ tmp }}</h2>
+      <h2>Image looks like this </h2>
+      <img src="../static/img/th.jpg">
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Hope you enjoy it &#128521;</p>
+    <p>Made by Group 14, Class Introduction to Artificial Intelligence 04 in PTIT, 04/2024</p>
+    <p>For more information, you can go to <a href="#">Detail</a></p>
+  </div>
+
+  <script src="../static/js/script.js"></script>
+</body>
+</html>
